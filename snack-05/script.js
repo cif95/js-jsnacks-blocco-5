@@ -4,8 +4,7 @@
 	Crea un array di oggetti che rappresentino delle persone.
 	Ogni persona ha un nome, un cognome e un'età.
 	
-	Crea quindi un nuovo array inserendo, per ogni persona, una frase con il nome e cognome e l'indicazione se può guidare, in base all'età.
- */// Crea quindi un nuovo array inserendo, per ogni persona, una frase con il nome e cognome e l'indicazione se può guidare, in base all'età.
+	Crea quindi un nuovo array inserendo, per ogni persona, una frase con il nome e cognome e l'indicazione se può guidare, in base all'età.*/
 
 const people = [
 	{
@@ -42,11 +41,12 @@ const people = [
 
 console.log(people);
 
+const peopleAgeCheck = people.map((element) => {
+	let string = `${element.firstName} ${element.lastName} :`;
+	return (isAdult(element.age)) ? `${string} can drive` : `${string} can't drive`;
+});
 
-people.forEach((element) => {
-	let string = `${element.firstName} ${element.lastName} : `;
-	(isAdult(element.age)) ? console.log(`${string} can drive`) : console.log(`${string} can't drive`)});
-
+console.log(peopleAgeCheck);
 
 // function that checks if a person age is >= 18
 function isAdult(age){
